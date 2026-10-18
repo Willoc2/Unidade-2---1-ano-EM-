@@ -62,7 +62,6 @@ button{font:inherit; color:inherit}
 
 /* Introdução */
 .intro{display:grid; gap:20px; margin-top:24px}
-@media(min-width:820px){.intro{grid-template-columns:1.1fr .9fr; align-items:center}}
 .intro p{max-width:62ch}
 .intro .lead{font-size:1.1rem}
 .note{margin-top:12px; padding:12px 14px; background:var(--surface-2); border-radius:10px; font-size:.95rem; color:var(--muted)}
@@ -82,17 +81,6 @@ button{font:inherit; color:inherit}
 @media(min-width:760px){.split{grid-template-columns:1fr 1fr}}
 .split > *{min-width:0}
 .stack{display:grid; gap:12px}
-
-/* Placeholder com envio de imagem */
-.ph{position:relative; aspect-ratio:16/9; max-width:100%; border:2px dashed var(--line); border-radius:12px; background:var(--surface-2); overflow:hidden}
-.ph-inner{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; padding:16px; text-align:center}
-.ph-kind{font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--earth)}
-.ph p{font-size:.88rem; color:var(--muted); max-width:42ch}
-.ph img{position:absolute; inset:0; width:100%; height:100%; object-fit:contain; background:var(--surface-2)}
-.ph.has-img{border-style:solid}
-.ph.has-img .ph-inner{inset:auto 8px 8px auto; padding:0; display:block}
-.ph.has-img .ph-kind,.ph.has-img p{display:none}
-.ph.has-img .btn{box-shadow:var(--shadow)}
 
 /* Controles */
 .ctrl{display:grid; gap:6px}
@@ -248,7 +236,6 @@ footer{margin-top:32px; font-size:.85rem; color:var(--muted); max-width:70ch}
       <p class="lead" style="margin-top:10px">Um bioma é um conjunto de ecossistemas continentais com estrutura e fisionomia vegetal semelhantes, resultantes de condições climáticas, geológicas e biológicas comuns.</p>
       <p class="note"><strong>Generalização didática.</strong> Dividir a biosfera em grandes biomas é uma simplificação importante para entender o quadro geral. Dentro de cada bioma existem variações microclimáticas e locais.</p>
     </div>
-    <div class="ph" data-kind="Imagem" data-label="Fotografia panorâmica comparando diferentes formações vegetais globais"></div>
   </section>
 
   <div class="grid" id="grid">
@@ -285,7 +272,6 @@ footer{margin-top:32px; font-size:.85rem; color:var(--muted); max-width:70ch}
         <p class="hint">Toque em um bioma para ver onde ocorre, o clima e a vegetação.</p>
       </div>
       <div class="biome-grid" id="biome-grid"></div>
-      <div class="ph" data-kind="Mapa" data-label="Mapa-múndi da distribuição geográfica dos 9 principais biomas globais"></div>
     </section>
 
     <!-- CARD 3 -->
@@ -307,7 +293,6 @@ footer{margin-top:32px; font-size:.85rem; color:var(--muted); max-width:70ch}
           <button class="btn" id="bio-btn" style="width:fit-content">Vá além: Aziz Ab'Sáber</button>
         </div>
         <div class="stack">
-          <div class="ph" data-kind="Mapa" data-label="Mapa comparativo: biomas do IBGE e domínios morfoclimáticos do Brasil"></div>
           <div class="tablewrap">
             <table>
               <thead><tr><th>Bioma (IBGE)</th><th>Domínio (Ab'Sáber)</th></tr></thead>
@@ -430,7 +415,6 @@ footer{margin-top:32px; font-size:.85rem; color:var(--muted); max-width:70ch}
           </div>
           <details open><summary>Formações vegetais</summary><p>Floresta Ombrófila Densa, no litoral úmido, e Floresta Ombrófila Mista (Mata de Araucárias), em altitudes mais elevadas e clima subtropical.</p></details>
           <details><summary>Lei Federal nº 11.428/2006</summary><p>A Lei da Mata Atlântica dispõe sobre a utilização, a proteção, a conservação e a restauração da vegetação nativa do bioma.</p></details>
-          <div class="ph" data-kind="Mapa" data-label="Mapa comparando a distribuição original e os remanescentes atuais da Mata Atlântica"></div>
         </div>
         <div class="stack">
           <h3>Manguezais e Restingas</h3>
@@ -443,7 +427,6 @@ footer{margin-top:32px; font-size:.85rem; color:var(--muted); max-width:70ch}
               <tbody id="coast-body"></tbody>
             </table>
           </div>
-          <div class="ph" data-kind="Imagem" data-label="Vegetação de manguezal com raízes respiratórias (pneumatóforos) e solo lodoso"></div>
         </div>
       </div>
     </section>
@@ -528,7 +511,7 @@ footer{margin-top:32px; font-size:.85rem; color:var(--muted); max-width:70ch}
     </section>
   </div>
 
-  <footer>Resumo estruturado a partir da Unidade 2 da Apostila SEDUC-MT, 1º ano do Ensino Médio, págs. 14 a 27. Os espaços tracejados são para mapas e fotos do livro: use "Inserir imagem" para colocar a sua. As imagens ficam só nesta tela e não são salvas.</footer>
+  <footer>Resumo estruturado a partir da Unidade 2 da Apostila SEDUC-MT, 1º ano do Ensino Médio, págs. 14 a 27.</footer>
 </main>
 
 <div class="overlay" id="overlay" hidden>
@@ -540,8 +523,8 @@ footer{margin-top:32px; font-size:.85rem; color:var(--muted); max-width:70ch}
 
 <script>
 /* CONFIGURAÇÃO DO ENVIO PARA A PLANILHA (opcional). Deixe vazio para guardar só neste aparelho. */
-var ENVIO_URL = '';    /* https://script.google.com/macros/s/AKfycbx-e4qbzCKaVMZn6-QmEdMmPKT83gl2JBksqFu5lXO3G7kuFvSmNRI9Gvo9OXP781dF/exec */
-var ENVIO_CHAVE = '';  /* uniade2 */
+var ENVIO_URL = '';    /* endereço do app da web do Apps Script, termina em /exec */
+var ENVIO_CHAVE = '';  /* a mesma chave definida em CHAVE no Code.gs */
 (function(){
   var $=function(s,r){return (r||document).querySelector(s)};
   var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
@@ -575,24 +558,6 @@ var ENVIO_CHAVE = '';  /* uniade2 */
       $$('#filters .chip').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
       var f=b.dataset.f;
       CATS.forEach(function(c){c.hidden=!(f==='todos'||c.dataset.cat===f)});
-    });
-  });
-
-  /* ---------- Placeholders de imagem ---------- */
-  $$('.ph').forEach(function(el,i){
-    var id='ph-file-'+i;
-    el.innerHTML='<div class="ph-inner"><span class="ph-kind">Espaço para '+el.dataset.kind.toLowerCase()+'</span><p>'+el.dataset.label+'</p><button type="button" class="btn">Inserir imagem</button><input id="'+id+'" type="file" accept="image/*" hidden></div>';
-    var inp=$('input',el), btn=$('button',el);
-    btn.addEventListener('click',function(){inp.click()});
-    inp.addEventListener('change',function(){
-      var f=inp.files&&inp.files[0]; if(!f) return;
-      var r=new FileReader();
-      r.onload=function(){
-        var img=$('img',el);
-        if(!img){img=document.createElement('img'); img.alt=el.dataset.label; el.insertBefore(img,el.firstChild)}
-        img.src=r.result; el.classList.add('has-img'); btn.textContent='Trocar imagem';
-      };
-      r.readAsDataURL(f);
     });
   });
 
